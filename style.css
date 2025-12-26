@@ -1,0 +1,74 @@
+:root {
+  --black: #000000;
+  --gold: #d4af37;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: linear-gradient(135deg, #000000, #d4af37);
+  color: var(--gold);
+  line-height: 1.6;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--black);
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--gold);
+}
+
+nav a {
+  color: var(--gold);
+  text-decoration: none;
+  margin: 0 1.5rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover { color: #ffffff; }
+
+header { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 2rem; }
+header h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; }
+header span { color: var(--gold); }
+header p { max-width: 600px; margin: 0 auto 2rem; color: var(--gold); }
+
+section { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+section h2 { font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--gold); }
+
+.about, .projects, .skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.about-card, .project, .skill {
+  background: var(--black);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+}
+
+.skill { text-align: center; }
+.skill:hover { transform: translateY(-6px); transition: transform 0.2s ease; }
+.project:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(212,175,55,0.35); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+
+#contact { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+#contact input, #contact textarea { width: 100%; max-width: 400px; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--gold); background: var(--black); color: var(--gold); }
+#contact button { padding: 0.8rem 1.6rem; border-radius: 999px; border: none; background: var(--gold); color: var(--black); font-weight: 600; cursor: pointer; }
+
+footer { text-align: center; padding: 2rem 1rem; color: var(--gold); border-top: 1px solid var(--gold); }
+
+@media(max-width:768px){
+  .about, .skills, .projects { grid-template-columns: 1fr; }
+  header h1 { font-size: clamp(2rem, 6vw, 3rem); }
+  nav { flex-direction: column; gap: 1rem; }
+}
